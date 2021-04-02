@@ -1,13 +1,50 @@
-import { Flex, Heading, Link } from "@chakra-ui/react";
+import React from "react";
+import { useLocation } from "wouter";
 
-const Navigation = () => {
+import { Flex, Button, Text, Heading, Link } from "@chakra-ui/react";
+
+const NavigationBar = () => {
+  const [, setLocation] = useLocation();
+
   return (
-    <Flex maxW="90%" justify="flex-start" margin="0 auto" align="center">
+    <Flex
+      maxWidth="100%"
+      margin="24px auto"
+      flexWrap="wrap"
+      justifyContent="center"
+    >
       <Heading>
-        <Link> Platforms</Link>
+        <Link href="/"> All </Link>
       </Heading>
+      <Button margin="8px" onClick={() => setLocation(`/platform/pc`)}>
+        <Text>PC</Text>
+      </Button>
+      <Button margin="8px" onClick={() => setLocation(`/platform/steam`)}>
+        Steam
+      </Button>
+      <Button
+        margin="8px"
+        onClick={() => setLocation(`/platform/playstation4`)}
+      >
+        <Text>PlayStation 4</Text>
+      </Button>
+      <Button
+        margin="8px"
+        onClick={() => setLocation(`/platform/nintendoswitch`)}
+      >
+        Nintendo Switch
+      </Button>
+      <Button margin="8px" onClick={() => setLocation(`/platform/xbox`)}>
+        XBox
+      </Button>
+      <Button margin="8px" onClick={() => setLocation(`/platform/ios`)}>
+        iOS
+      </Button>
+      <Button margin="8px" onClick={() => setLocation(`/platform/android`)}>
+        Android
+      </Button>
     </Flex>
   );
 };
 
-export default Navigation;
+export default NavigationBar;

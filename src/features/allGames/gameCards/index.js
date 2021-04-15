@@ -15,10 +15,17 @@ import { SiNintendoswitch, SiPlaystation4, SiXbox } from "react-icons/si";
 import { RiComputerLine } from "react-icons/ri";
 import { FaApple, FaSteam } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
-
+import GameDisplay from "../gameDisplay";
 import React from "react";
+import { useLocation } from "wouter";
 
-const GameCards = ({ allGames, loading }) => {
+const GameCards = ({ allGames, loading, gameTitle }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [, setLocation] = useLocation();
+
+  if (gameTitle)
+    return <GameDisplay allGames={allGames} gameTitle={gameTitle} />;
+
   return (
     <>
       {loading ? (
@@ -32,6 +39,9 @@ const GameCards = ({ allGames, loading }) => {
           {allGames.map((game) => {
             return (
               <Box
+                onClick={() => {
+                  setLocation(`/games/${game.id}`);
+                }}
                 key={game.id}
                 maxH="100%"
                 maxW="200px"
@@ -39,10 +49,16 @@ const GameCards = ({ allGames, loading }) => {
                 borderWidth="1px "
                 borderRadius="lg"
                 borderColor="rgba(30,30,30, 0.4)"
-                bg="rgba(110, 123, 186, 0.3)"
+                bg="rgba(110, 123, 186)"
                 padding="12px"
                 margin="8px"
                 boxShadow="dark-lg"
+                transition="all 300ms ease-in-out"
+                _hover={{
+                  cursor: "pointer",
+                  transform: "scale(1.2)",
+                  background: "rgba(110, 103, 176)",
+                }}
               >
                 <Grid>
                   <GridItem maxW="100%" borderRadius="md">

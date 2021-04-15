@@ -1,19 +1,33 @@
 import { Route, Switch } from "wouter";
+import AllGames from "features/allGames";
 import Home from "features/home";
-import PC from "features/home/gameCards/pc";
-import PS4 from "features/home/gameCards/ps4";
-import IOS from "features/home/gameCards/ios";
-import Android from "features/home/gameCards/android";
-import XBoxOne from "features/home/gameCards/xbox";
-import NintendoSwitch from "features/home/gameCards/nintendoswitch";
+import PC from "features/allGames/gameCards/pc";
+import PS4 from "features/allGames/gameCards/ps4";
+import IOS from "features/allGames/gameCards/ios";
+import Android from "features/allGames/gameCards/android";
+import XBoxOne from "features/allGames/gameCards/xbox";
+import NintendoSwitch from "features/allGames/gameCards/nintendoswitch";
 
 const Router = () => (
   <Switch>
     <Route path="/">
       <Home />
     </Route>
+    <Route path="/games">
+      <AllGames />
+    </Route>
+    <Route path="/games/:title">
+      {(params) => (
+        <>
+          <AllGames gameTitle={params.title} />
+        </>
+      )}
+    </Route>
     <Route path="/platform/pc">
       <PC />
+    </Route>
+    <Route path="/platform/pc/:title">
+      {(params) => <PC gameTitle={params.title} />}
     </Route>
     <Route path="/platform/xbox">
       <XBoxOne />
@@ -29,7 +43,9 @@ const Router = () => (
     <Route path="/platform/nintendoswitch">
       <NintendoSwitch />
     </Route>
-    <Route path="/platform/others"></Route>
+    <Route>
+      <div>This is error page...</div>
+    </Route>
   </Switch>
 );
 

@@ -19,10 +19,13 @@ import { FaApple, FaSteam } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { getPCGames } from "context/platforms";
 import { DefaultGames } from "../../../../constants";
+import { useLocation } from "wouter";
+import GameDisplay from "../../gameDisplay";
 
-const PC = () => {
+const PC = ({ gameTitle }) => {
   const [pcGames, setPCGames] = useState(DefaultGames);
   const [loading, setLoading] = useState(true);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     if (loading) {
@@ -32,6 +35,8 @@ const PC = () => {
       });
     }
   }, [loading]);
+
+  if (gameTitle) return <GameDisplay />;
 
   return (
     <>
@@ -47,6 +52,7 @@ const PC = () => {
             {pcGames.map((game) => {
               return (
                 <Box
+                  onClick={() => setLocation(`/platform/pc/${game.title}`)}
                   key={game.id}
                   maxH="100%"
                   maxW="200px"

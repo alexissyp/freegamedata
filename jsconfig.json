@@ -1,13 +1,18 @@
-  {
+{
     "compilerOptions": {
-        "target": "es6",
-        "baseUrl": "src" },
+        "target": "ES6",
+        "baseUrl": "src"
+    },
 
-    "include": [
-        "src"
-    ],
+    "include": ["src/**/*"],
     "exclude": [
-        "node_modules",
-
+      "node_modules",
+      "build",
+      "scripts",
+      "acceptance-tests",
+      "webpack",
+      "jest",
+      "setupTests.tsx"
     ]
 }
+

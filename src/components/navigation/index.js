@@ -14,8 +14,11 @@ const NavigationBar = () => {
       justifyContent="center"
     >
       <Heading>
-        <Link href="/"> All </Link>
+        <Link href="/"> Home </Link>
       </Heading>
+      <Button margin="8px" onClick={() => setLocation(`/games`)}>
+        <Text> All </Text>
+      </Button>
       <Button margin="8px" onClick={() => setLocation(`/platform/pc`)}>
         <Text>PC</Text>
       </Button>

@@ -18,3 +18,21 @@ export const DefaultGames = [
     worth: "",
   },
 ];
+
+export const DefaultGame = [
+  {
+    description: "",
+    end_date: "",
+    gamerpower_url: "",
+    id: "",
+    instructions: "",
+    open_giveaway_url: "",
+    platforms: "",
+    status: "",
+    thumbnail: "",
+    title: "",
+    type: "",
+    users: "",
+    worth: "",
+  },
+];

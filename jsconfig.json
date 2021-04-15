@@ -9,10 +9,7 @@
       "node_modules",
       "build",
       "scripts",
-      "acceptance-tests",
-      "webpack",
-      "jest",
-      "setupTests.tsx"
+
     ]
 }
 

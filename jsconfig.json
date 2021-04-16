@@ -1,15 +1,34 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "baseUrl": "src"
+      "module": "commonjs",
+      "target": "es6",
+      "lib": ["es6", "dom"],
+      "jsx": "react",
+      "baseUrl": "./src",
+      "paths": {
+        "/assets/*": ["./src/assets"],
+        "/components/*": ["./src/components/*"],
+        "/context/*": ["./src/context/*"],
+        "/features/*": ["./src/features/*"],
+        "/types/*": ["./src/types/*"],
+        "/utils/*": ["./src/utils/*"]
+      },
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "esModuleInterop": true,
+      "typeRoots": ["node_modules/@types", "src/types"],
+      "types": ["@types/jest"]
     },
-
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "@types"],
     "exclude": [
       "node_modules",
       "build",
       "scripts",
-
+      "acceptance-tests",
+      "webpack",
+      "jest",
+      "setupTests.tsx"
     ]
-}
-
+  }

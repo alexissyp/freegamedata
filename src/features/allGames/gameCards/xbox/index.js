@@ -19,11 +19,12 @@ import { FaApple, FaSteam } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { getXBoxOneGames } from "../../../../context/platforms";
 import { DefaultGames } from "../../../../constants";
-
-const XBoxOne = () => {
+import GameDisplay from "../../gameDisplay";
+import { useLocation } from "wouter";
+const XBoxOne = ({ gameTitle }) => {
   const [xboxGames, setXBoxOneGames] = useState(DefaultGames);
   const [loading, setLoading] = useState(true);
-
+  const [, setLocation] = useLocation();
   useEffect(() => {
     if (loading) {
       getXBoxOneGames().then((response) => {
@@ -32,6 +33,9 @@ const XBoxOne = () => {
       });
     }
   }, [loading]);
+
+  if (gameTitle)
+    return <GameDisplay allGames={xboxGames} gameTitle={gameTitle} />;
 
   return (
     <>
@@ -47,6 +51,9 @@ const XBoxOne = () => {
             {xboxGames.map((game) => {
               return (
                 <Box
+                  onClick={() => {
+                    setLocation(`/games/${game.id}`);
+                  }}
                   key={game.id}
                   maxH="100%"
                   maxW="200px"
@@ -58,6 +65,12 @@ const XBoxOne = () => {
                   padding="12px"
                   margin="8px"
                   boxShadow="dark-lg"
+                  transition="all 300ms ease-in-out"
+                  _hover={{
+                    cursor: "pointer",
+                    transform: "scale(1.2)",
+                    background: "rgba(110, 123, 186, 0.7)",
+                  }}
                 >
                   <Grid>
                     <GridItem maxW="100%" borderRadius="md">

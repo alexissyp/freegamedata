@@ -36,7 +36,8 @@ const PC = ({ gameTitle }) => {
     }
   }, [loading]);
 
-  if (gameTitle) return <GameDisplay />;
+  if (gameTitle)
+    return <GameDisplay allGames={pcGames} gameTitle={gameTitle} />;
 
   return (
     <>
@@ -52,7 +53,7 @@ const PC = ({ gameTitle }) => {
             {pcGames.map((game) => {
               return (
                 <Box
-                  onClick={() => setLocation(`/platform/pc/${game.title}`)}
+                  onClick={() => setLocation(`/platform/pc/${game.id}`)}
                   key={game.id}
                   maxH="100%"
                   maxW="200px"
@@ -64,6 +65,12 @@ const PC = ({ gameTitle }) => {
                   padding="12px"
                   margin="8px"
                   boxShadow="dark-lg"
+                  transition="all 300ms ease-in-out"
+                  _hover={{
+                    cursor: "pointer",
+                    transform: "scale(1.2)",
+                    background: "rgba(110, 123, 186, 0.7)",
+                  }}
                 >
                   <Grid>
                     <GridItem maxW="100%" borderRadius="md">

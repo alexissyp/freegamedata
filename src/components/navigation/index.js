@@ -22,9 +22,7 @@ const NavigationBar = () => {
       <Button margin="8px" onClick={() => setLocation(`/platform/pc`)}>
         <Text>PC</Text>
       </Button>
-      <Button margin="8px" onClick={() => setLocation(`/platform/steam`)}>
-        Steam
-      </Button>
+
       <Button
         margin="8px"
         onClick={() => setLocation(`/platform/playstation4`)}

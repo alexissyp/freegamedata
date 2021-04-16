@@ -19,11 +19,13 @@ import { FaApple, FaSteam } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { getSwitchGames } from "context/platforms";
 import { DefaultGames } from "../../../../constants";
+import GameDisplay from "../../gameDisplay";
+import { useLocation } from "wouter";
 
-const NintendoSwitch = () => {
+const NintendoSwitch = ({ gameTitle }) => {
   const [switchGames, setSwitchGames] = useState(DefaultGames);
   const [loading, setLoading] = useState(true);
-
+  const [, setLocation] = useLocation();
   useEffect(() => {
     if (loading) {
       getSwitchGames().then((response) => {
@@ -32,6 +34,9 @@ const NintendoSwitch = () => {
       });
     }
   }, [loading]);
+
+  if (gameTitle)
+    return <GameDisplay allGames={switchGames} gameTitle={gameTitle} />;
 
   return (
     <>
@@ -47,6 +52,9 @@ const NintendoSwitch = () => {
             {switchGames.map((game) => {
               return (
                 <Box
+                  onClick={() => {
+                    setLocation(`/games/${game.id}`);
+                  }}
                   key={game.id}
                   maxH="100%"
                   maxW="200px"
@@ -58,6 +66,12 @@ const NintendoSwitch = () => {
                   padding="12px"
                   margin="8px"
                   boxShadow="dark-lg"
+                  transition="all 300ms ease-in-out"
+                  _hover={{
+                    cursor: "pointer",
+                    transform: "scale(1.2)",
+                    background: "rgba(110, 123, 186, 0.7)",
+                  }}
                 >
                   <Grid>
                     <GridItem maxW="100%" borderRadius="md">

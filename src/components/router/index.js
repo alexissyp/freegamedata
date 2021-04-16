@@ -23,26 +23,52 @@ const Router = () => (
         </>
       )}
     </Route>
+    {/* PC -----------------------*/}
     <Route path="/platform/pc">
       <PC />
     </Route>
     <Route path="/platform/pc/:title">
       {(params) => <PC gameTitle={params.title} />}
     </Route>
+
+    {/* XBOX -----------------------*/}
     <Route path="/platform/xbox">
       <XBoxOne />
     </Route>
+    <Route path="/platform/xbox/:title">
+      {(params) => <XBoxOne gameTitle={params.title} />}
+    </Route>
+    {/* ANDROID -----------------------*/}
     <Route path="/platform/android">
       <Android />
     </Route>
+    <Route path="/platform/android/:title">
+      {(params) => <Android gameTitle={params.title} />}
+    </Route>
+    {/* IOS -----------------------*/}
     <Route path="/platform/ios">
       <IOS />
     </Route>
-    <Route path="/platform/ps4"></Route>
-    <PS4 />
+    <Route path="/platform/ios/:title">
+      {(params) => <IOS gameTitle={params.title} />}
+    </Route>
+    {/* PS4 -----------------------*/}
+    <Route path="/platform/playstation4">
+      <PS4 />
+    </Route>
+    <Route path="/platform/playstation4/:title">
+      {(params) => <PS4 gameTitle={params.title} />}
+    </Route>
+
+    {/* SWITCH -----------------------*/}
     <Route path="/platform/nintendoswitch">
       <NintendoSwitch />
     </Route>
+    <Route path="/platform/nintendoswitch/:title">
+      {(params) => <NintendoSwitch gameTitle={params.title} />}
+    </Route>
+
+    {/* ERROR -----------------------*/}
     <Route>
       <div>This is error page...</div>
     </Route>

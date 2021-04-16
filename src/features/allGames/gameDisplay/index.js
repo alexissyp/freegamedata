@@ -1,12 +1,14 @@
 import {
   Box,
+  Button,
+  Container,
   Image,
   Text,
-  VStack,
-  Heading,
-  HStack,
-  Skeleton,
+  Flex,
   Stack,
+  Heading,
+  Skeleton,
+  Link,
 } from "@chakra-ui/react";
 import { getGame } from "context/api-dao";
 import React, { useEffect, useState } from "react";
@@ -34,18 +36,25 @@ const GameDisplay = ({ allGames, gameTitle }) => {
           <Skeleton height="20px" />
         </Stack>
       ) : (
-        <Box>
-          <HStack>
-            <Image src={game.thumbnail} alt={game.title} />
-            <VStack justify="flex-start">
+        <Container maxW="100%" centerContent>
+          <Box padding="4" maxW="3xl">
+            <Stack direction={["column", "row"]} spacing="24px">
+              <Image borderRadius="5%" src={game.thumbnail} alt={game.title} />
               <Heading>{game.title}</Heading>
-            </VStack>
-          </HStack>
-          <Text>{game.description}</Text>
-          <div>{game.open_giveaway_url}</div>
-          <div>{game.instructions}</div>
-          <div></div>
-        </Box>
+            </Stack>
+
+            <Text>{game.description}</Text>
+            <Button>
+              <Link href={game.open_giveaway_url}>CLAIM</Link>
+            </Button>
+            <Box marginTop="24px">
+              <Heading as="h4" size="md">
+                Instructions
+              </Heading>
+              <Text>{game.instructions}</Text>
+            </Box>
+          </Box>
+        </Container>
       )}
     </>
   );

@@ -3,11 +3,11 @@ import axios from "axios";
 const getGamesType = async () => {
   const options = {
     method: "GET",
-    url: "https://gamerpower.p.rapidapi.com/api/giveaways",
+    url: process.env.REACT_APP_BASE_URL,
     params: { type: "game" },
     headers: {
-      "x-rapidapi-key": "395095bc65msh0781275ca103113p1110cfjsned1b817d0c23",
-      "x-rapidapi-host": "gamerpower.p.rapidapi.com",
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      "x-rapidapi-host": process.env.REACT_APP_API_HOST,
     },
   };
 
@@ -24,10 +24,10 @@ const getGamesType = async () => {
 const getAllGames = async () => {
   const options = {
     method: "GET",
-    url: "https://gamerpower.p.rapidapi.com/api/giveaways",
+    url: process.env.REACT_APP_BASE_URL,
     headers: {
-      "x-rapidapi-key": "395095bc65msh0781275ca103113p1110cfjsned1b817d0c23",
-      "x-rapidapi-host": "gamerpower.p.rapidapi.com",
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      "x-rapidapi-host": process.env.REACT_APP_API_HOST,
     },
   };
 
@@ -44,11 +44,11 @@ const getAllGames = async () => {
 const getGamesPlatform = async () => {
   const options = {
     method: "GET",
-    url: "https://gamerpower.p.rapidapi.com/api/giveaways",
+    url: process.env.REACT_APP_BASE_URL,
     params: { platform: "pc" },
     headers: {
-      "x-rapidapi-key": "395095bc65msh0781275ca103113p1110cfjsned1b817d0c23",
-      "x-rapidapi-host": "gamerpower.p.rapidapi.com",
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      "x-rapidapi-host": process.env.REACT_APP_API_HOST,
     },
   };
 
@@ -65,11 +65,11 @@ const getGamesPlatform = async () => {
 const getGame = async (id) => {
   const options = {
     method: "GET",
-    url: "https://gamerpower.p.rapidapi.com/api/giveaway",
+    url: process.env.REACT_APP_BASE_URL,
     params: id,
     headers: {
-      "x-rapidapi-key": "395095bc65msh0781275ca103113p1110cfjsned1b817d0c23",
-      "x-rapidapi-host": "gamerpower.p.rapidapi.com",
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      "x-rapidapi-host": process.env.REACT_APP_API_HOST,
     },
   };
 

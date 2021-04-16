@@ -4,7 +4,6 @@ import {
   Container,
   Image,
   Text,
-  Flex,
   Stack,
   Heading,
   Skeleton,

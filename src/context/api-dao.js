@@ -65,7 +65,7 @@ const getGamesPlatform = async () => {
 const getGame = async (id) => {
   var options = {
     method: "GET",
-    url: "https://gamerpower.p.rapidapi.com/api/giveaway",
+    url: process.env.REACT_APP_BASE_URL,
     params: { id },
     headers: {
       "x-rapidapi-key": process.env.REACT_APP_API_KEY,
